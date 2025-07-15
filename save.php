@@ -3,8 +3,8 @@ session_start();
 include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = mysqli_real_escape_string($conn, $_POST['name'] ?? '');
-    $email = mysqli_real_escape_string($conn, $_POST['email'] ?? '');
+    $name = ($conn, $_POST['name'] ?? '');
+    $email =($conn, $_POST['email'] ?? '');
     $age = (int)($_POST['age'] ?? 0);
     $id = isset($_POST['id']) && $_POST['id'] !== '' ? (int)$_POST['id'] : 0;
 
