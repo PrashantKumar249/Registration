@@ -1,9 +1,11 @@
 <?php
 session_start();
+include 'db.php';
 
 $name = $_SESSION['name'] ?? '';
 $email = $_SESSION['email'] ?? '';
 $age = $_SESSION['age'] ?? '';
+$id = $_SESSION['id'] ?? ''; 
 ?>
 
 <!DOCTYPE html>
@@ -15,13 +17,14 @@ $age = $_SESSION['age'] ?? '';
 <center>
     <h1>Registration Form</h1>
     <form method="POST" action="save.php">
-        <input type="text" name="name" value="<?=htmlspecialchars($name)?>" placeholder="Enter your name" required>
+        <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>" />
+        <input type="text" name="name" value="<?= htmlspecialchars($name) ?>" placeholder="Enter your name" required>
         <br/>
         <br/>
-        <input type="email" name="email" value="<?=htmlspecialchars($email)?>" placeholder="Enter your email" required>
+        <input type="email" name="email" value="<?= htmlspecialchars($email) ?>" placeholder="Enter your email" required>
         <br/>
         <br/>
-        <input type="number" name="age" value="<?=htmlspecialchars($age)?>" placeholder="Enter your age" required>
+        <input type="number" name="age" value="<?= htmlspecialchars($age) ?>" placeholder="Enter your age" required>
         <br/>
         <br/>
         <button type="submit">Submit</button>
